@@ -93,28 +93,32 @@ const Memory = ({playMusic}) => {
         const playButton = document.getElementById("playButton");
         const videoModal = document.getElementById("videoModal");
         const closeButton = document.getElementById("closeButton");
-        const video = document.getElementById("specialVideo");
+        // const video = document.getElementById("specialVideo");
+        const iframe = document.querySelector('.memory-main-container__iframe-video');
 
         playButton.addEventListener("click", function () {
             playMusic()
             videoModal.classList.add("active");
             setTimeout(() => {
-                video.play();
+                // video.play();
+            iframe.src = "https://drive.google.com/file/d/1QzRANzSzxB_hwhAXRs6hcb_DkbarCM_G/preview"; // Set dynamic src for the iframe
             }, 500);
         });
 
         closeButton.addEventListener("click", function () {
             videoModal.classList.remove("active");
-            video.pause();
-            video.currentTime = 0;
+            iframe.src = null
+            // video.pause();
+            // video.currentTime = 0;
         });
 
         // Close modal when clicking outside the video
         videoModal.addEventListener("click", function (e) {
             if (e.target === videoModal) {
                 videoModal.classList.remove("active");
-                video.pause();
-                video.currentTime = 0;
+                // video.pause();
+                // video.currentTime = 0;
+                iframe.src = null
             }
         });
 
@@ -274,10 +278,11 @@ const Memory = ({playMusic}) => {
             <div className="memory-main-container__modal" id="videoModal">
                 <div className="memory-main-container__modal-content">
                     <button className="memory-main-container__close-button" id="closeButton">×</button>
-                    <video id="specialVideo" controls>
+                    {/* <video id="specialVideo" controls>
                         <source src="audio/720_p.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
-                    </video>
+                    </video> */}
+                    <iframe className='memory-main-container__iframe-video' src="https://drive.google.com/file/d/1QzRANzSzxB_hwhAXRs6hcb_DkbarCM_G/preview" allow="autoplay"></iframe>
                 </div>
             </div>
 

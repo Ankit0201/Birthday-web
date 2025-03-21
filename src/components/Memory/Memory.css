@@ -348,6 +348,14 @@ video {
   border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
+.memory-main-container__iframe-video {
+  width: 100%;
+  border-radius: 12px;
+  height: 420px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
 /* Floating Hearts */
 .memory-main-container__hearts-container {
   position: fixed;

@@ -282,7 +282,7 @@ const Memory = ({playMusic}) => {
                         <source src="audio/720_p.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video> */}
-                    <iframe className='memory-main-container__iframe-video' src="https://drive.google.com/file/d/1QzRANzSzxB_hwhAXRs6hcb_DkbarCM_G/preview" allow="autoplay"></iframe>
+                    <iframe className='memory-main-container__iframe-video' allowfullscreen src="https://drive.google.com/file/d/1QzRANzSzxB_hwhAXRs6hcb_DkbarCM_G/preview" allow="autoplay"></iframe>
                 </div>
             </div>
 

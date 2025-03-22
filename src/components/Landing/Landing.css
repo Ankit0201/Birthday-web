@@ -449,12 +449,14 @@
         left: 40px;
         width: 40px;
         height: 60px;
+        outline: none;
     }
     
     .main-landing-container__heart-button-text {
         font-size: 1.1rem;
         top: 38px;
         left: 7px;
+        outline: none;
     }
     
     .main-landing-container__ribbon {

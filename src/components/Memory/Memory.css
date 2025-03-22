@@ -564,9 +564,9 @@ video {
   .memory-main-container__ribbon::before {
     width: 200px;
     padding: 10px 0;
-    font-size: 14px;
+    font-size: 10px;
     right: -45px;
-    top: 35px;
+    top: 40px;
   }
 
   .memory-main-container__gallery {

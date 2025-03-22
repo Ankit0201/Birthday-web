@@ -4,26 +4,27 @@ import Landing from './components/Landing/Landing'
 import Memory from './components/Memory/Memory'
 import Cake from './components/Cake/Cake'
 import Gift from './components/Gift/Gift'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 
 function App() {
-  const [audio, setAudio] = useState(null);
+  const audioRef = useRef(null);
 
-  const playMusic = (audioUrl = null) => {
-    if (audio) {
-      audio.pause(); // Pause the currently playing audio
-      setAudio(null); // Clear the audio state
+  const playMusic = (url = null) => {    
+    if (url) {
+      audioRef.current.src = url; // Set the new audio source
+      audioRef.current.loop = true; // Set the audio to loop
+      audioRef.current.currentTime = 0;
+      audioRef.current.play(); // Play the new audio directly
     }else{
-      const newAudio = new Audio(audioUrl);
-      newAudio.loop = true; // Set the audio to loop
-      setAudio(newAudio);
-      newAudio.play(); // Play the new audio directly
+      audioRef.current.currentTime = 0;
+      audioRef.current.pause();
     }
   }
 
   return (
     <>
+      <audio ref={audioRef} />
       <Routes>
         <Route path="/" element={<Landing playMusic={playMusic}/>} />
         <Route path="/memory" element={<Memory playMusic={playMusic}/>} />

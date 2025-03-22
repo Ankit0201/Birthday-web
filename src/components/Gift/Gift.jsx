@@ -4,6 +4,7 @@ import "./Gift.css";
 const Gift = ({ playMusic }) => {
   const [isTextCompleted, setIsTextCompleted] = useState(false);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [isLoader, setIsLoader] = useState(false);
   const songs = [
     "https://pagalfree.com/musics/128-Tumhare Hi Rahenge Hum - Stree 2 128 Kbps.mp3",
     "https://pagalfree.com/musics/128-Chand Sifarish - Fanaa 128 Kbps.mp3",
@@ -140,17 +141,24 @@ I love you soooooo mucccchhhh my cutie betu sweetu kittu bacchu my cute paadi! �
       if (audio) {
         audio.pause();
         audio.currentTime = 0;
+        setIsLoader(false)
       }
     } else {
       const audio = document.getElementById("audioPlayer");
+
       if (audio) {
-        audio.src = songs[currentSongIndex];
-        audio.play();
+        setTimeout(() => {
+          audio.src = songs[currentSongIndex];
+          audio.play();
+          setIsLoader(false)
+        }, 1000);
+
       }
     }
   };
 
   const handleNextSong = () => {
+    setIsLoader(true)
     setCurrentSongIndex((prevIndex) => (prevIndex + 1) % songs.length);
     playSongs();
   };
@@ -170,25 +178,31 @@ I love you soooooo mucccchhhh my cutie betu sweetu kittu bacchu my cute paadi! �
             {isTextCompleted}
           </div>
           {isTextCompleted && (
-            <div className="main-gift-container__img-cont">
-              <img
-                className="main-gift-container__heart-img"
-                src="images/heart.webp"
-                alt=""
-              />
+            <div className="main-gift-container__love-container">
+              <p className="main-gift-container__love-text main-gift-container__love-text-I" style={{marginTop:'-14px'}}>𝙸</p>
+              <div className="main-gift-container__img-cont">
+                <img
+                  className="main-gift-container__heart-img"
+                  src="images/heart.webp"
+                  alt=""
+                />
+              </div>
+              <p className="main-gift-container__love-text main-gift-container__love-text-U" style={{fontSize:'102px'}}>𐌵</p>
             </div>
           )}
           {isTextCompleted && (
             <div
               className="main-gift-container__controls"
-              onClick={handleNextSong}
             >
               <button
                 id="muteButton"
+                onClick={handleNextSong}
                 className="main-gift-container__control-btn"
+                disabled={isLoader} // Disable button when isLoader is true
               >
-                <span className="icon">🔊</span>{" "}
-                {currentSongIndex ? "Music" : "Play Next"}
+                {!isLoader && <span className="icon">🔊</span>}{" "}
+                {isLoader && <div className="icon loader"></div>}
+                {currentSongIndex !== null ? "Play Next" : "Music"}
               </button>
             </div>
           )}

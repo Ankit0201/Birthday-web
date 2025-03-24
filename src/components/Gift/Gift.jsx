@@ -5,6 +5,7 @@ const Gift = ({ playMusic }) => {
   const [isTextCompleted, setIsTextCompleted] = useState(false);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isLoader, setIsLoader] = useState(false);
+  const audio = document.getElementById("audioPlayer");
   const songs = [
     "https://pagalfree.com/musics/128-Tumhare Hi Rahenge Hum - Stree 2 128 Kbps.mp3",
     "https://pagalfree.com/musics/128-Chand Sifarish - Fanaa 128 Kbps.mp3",
@@ -12,6 +13,8 @@ const Gift = ({ playMusic }) => {
     "https://pagalfree.com/musics/128-Tere Liye - 1982 - A Love Marriage 128 Kbps.mp3",
     "https://pagalfree.com/musics/128-Dekha Hazaro Dafaa - Rustom 128 Kbps.mp3",
     "https://pagalfree.com/musics/128-Bas Tera Hoon - Javed-Mohsin 128 Kbps.mp3",
+    "https://pagalfree.com/musics/128-Neend Churayee Meri - Ishq 128 Kbps.mp3",
+    "https://pagalfree.com/musics/128-Tu Hain Toh Main Hoon - Sky Force 128 Kbps.mp3"
   ];
 
   const text = `प्रिय हॉट रवीना 💖
@@ -41,8 +44,15 @@ Waise zor to aa raha hai likhne me, par tu apni hai to likh deta hoon. 😜
 Chal ab zyada hass mat! 🤭😂
 Waise aap bahut samajhdar ho... 😏 (Waise ye samajhdar wala majak hai, serious mat le lena! 🤣)
 
+खुदा करे, सलामत रहें दोनों हमेशा,
+एक तुम ❤️ और दूसरा मुस्कुराना तुम्हारा 😊✨!!!
+
 Main aapse bohot bohot pyaar karta hoon. 😘💕
-I love you soooooo mucccchhhh my cutie betu sweetu kittu bacchu my cute paadi! 💖🥰`;
+I love you soooooo mucccchhhh my cutie betu sweetu kittu bacchu my cute paadi! 💖🥰
+
+Kehne ko to bahut hai, but wo yaha bayyan nahi ho payega... ❤️✨
+
+Once again, Happy Birthday sweetheart! 🎉🎂🥰💕`;
 
   const [displayText, setDisplayText] = useState("");
   const heartSymbols = [
@@ -134,10 +144,9 @@ I love you soooooo mucccchhhh my cutie betu sweetu kittu bacchu my cute paadi! �
     container.appendChild(star);
   };
 
-  const playSongs = (stop = false) => {
+  const playSongs = (stop = false, indexNumber = 0) => {
     if (stop) {
       // Stop the current song if needed
-      const audio = document.getElementById("audioPlayer");
       if (audio) {
         audio.pause();
         audio.currentTime = 0;
@@ -148,7 +157,9 @@ I love you soooooo mucccchhhh my cutie betu sweetu kittu bacchu my cute paadi! �
 
       if (audio) {
         setTimeout(() => {
-          audio.src = songs[currentSongIndex];
+          console.log(indexNumber,"asd");
+          
+          audio.src = songs[indexNumber];
           audio.play();
           setIsLoader(false)
         }, 1000);
@@ -157,12 +168,12 @@ I love you soooooo mucccchhhh my cutie betu sweetu kittu bacchu my cute paadi! �
     }
   };
 
-  const handleNextSong = () => {
-    setIsLoader(true)
-    setCurrentSongIndex((prevIndex) => (prevIndex + 1) % songs.length);
-    playSongs();
+  const handleNextSong = async () => {
+    setIsLoader(true);
+    const nextIndex =audio.currentTime == 0 ? 0 : (currentSongIndex + 1) % songs.length;
+    setCurrentSongIndex(nextIndex);
+    playSongs(false,nextIndex);
   };
-
   return (
     <div className="main-gift-container">
       <div className="main-gift-container__stars" id="stars"></div>

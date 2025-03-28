@@ -8,80 +8,88 @@ const Memory = ({playMusic}) => {
         {
             src: "images/first_look.jpg",
             alt: "First Look",
-            caption: "The first time I saw you, my heart melted instantly 💓.",
+            caption: "😍 The first time I saw you, my heart melted instantly 💓.",
             date: "April 23",
             delay: '0.1s'
         },
         {
             src: "images/first_meet.jpg",
             alt: "First Date Under the Stars",
-            caption: "Our first memorable date",
+            caption: "✨ Our first memorable date under the stars 🌟.",
             date: "June 28, 2024",
             delay: '0.2s'
         },
         {
             src: "images/mahakal_place.jpg",
             alt: "Day at Mahakal",
-            caption: "A beautiful day spent together at Mahakal.",
+            caption: "🙏 A beautiful and peaceful day spent together at Mahakal ❤️.",
             date: "August 15, 2024",
             delay: '0.3s'
         },
         {
             src: "images/citadel.jpg",
             alt: "First Kiss Moment",
-            caption: "Moment when our lips met, and time stood still. Pure magic. 💖",
+            caption: "💋 The moment when our lips met, and time stood still. Pure magic. 💖",
             date: "September 15, 2024",
             delay: '0.4s'
         },
         {
             src: "images/shimcha_1.jpg",
             alt: "Cute Moon",
-            caption: "🌙 Like fun with two cute moons 🌙!",
+            caption: "🌙 Like fun with two cute moons 🌙! Love this moment. 💕",
             date: "October 20, 2024",
             delay: '0.5s'
         },
         {
             src: "images/shimcha_2.jpg",
             alt: "Road Trip Memories",
-            caption: "Bahut bhari ho but puri life ese hi utha ke rakhna he",
+            caption: "Bahut bhari ho 😆 but puri life ese hi utha ke rakhna he 💪❤️.",
             date: "October 20, 2024",
             delay: '0.6s'
         },
         {
             src: "images/baccha.jpg",
             alt: "Movie Night Fun",
-            caption: "Haaye mera cute sa baccha. Bahut masti karta he.",
+            caption: "🎬 Haaye mera cute sa baccha 🥹. Bahut masti karta he! 🥰",
             date: "September 15, 2024",
             delay: '0.7s'
         },
         {
             src: "images/eye_contact.jpg",
             alt: "Pure Love Moment",
-            caption: "In your eyes, I discovered a boundless love that knows no limits. 💖",
+            caption: "👀 In your eyes, I discovered a boundless love that knows no limits. 💞",
             date: "June 10",
             delay: '0.8s'
         },
         {
             src: "images/hug.jpg",
             alt: "Dinner Date with You",
-            caption: "My lal pari.",
+            caption: "🍽️ My lal pari ❤️. Best date ever! 🥂",
             delay: '0.9s'
         },
         {
             src: "images/iconic_pose.jpg",
             alt: "Our Iconic Concert Pose",
-            caption: "Our iconic pose together, with your adorable cheeks!",
+            caption: "🎤 Our iconic pose together, with your adorable cheeks! 😍",
             date: "",
             delay: '0.10s'
         },
         {
             src: "images/new_year.jpg",
             alt: "New Year Celebration",
-            caption: "Ty for making my bday special",
+            caption: "🎆 Ty for making my bday special 🥳🎂. Best start to the new year! ❤️",
+            date: "January 1, 2025",
+            delay: '0.11s'
+        },
+        {
+            src: "images/cutiepie_1.jpg",
+            alt: "Cute Look",
+            caption: "🥰 Dekho Dekho kitni cute lag rahi haye 😘. My cutiepie! 💖",
             date: "January 1, 2025",
             delay: '0.11s'
         }
     ];
+    
     useEffect(() => {
         // Animation delay for polaroid photos
         const polaroids = document.querySelectorAll(".memory-main-container__polaroid");

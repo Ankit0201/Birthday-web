@@ -28,7 +28,7 @@ const Cake = ({playMusic}) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    playMusic('audio/bdy_tune.mp3');
+    playMusic('audio/happy_birthday.mp3');
     const floatingElements = document.querySelector(
       ".main-cake-container__floating-elements"
     );
@@ -45,18 +45,10 @@ const Cake = ({playMusic}) => {
       floatingElements.appendChild(heart);
     }
 
-    // Create stars
-    for (let i = 0; i < 12; i++) {
-      const star = document.createElement("div");
-      star.classList.add("main-cake-container__stars");
-      star.style.left = `${Math.random() * 100}%`;
-      star.style.top = `${Math.random() * 100}%`;
-      star.style.animationDuration = `${5 + Math.random() * 5}s`;
-      star.style.animationDelay = `${Math.random() * 5}s`;
-      star.style.transform = `scale(${0.5 + Math.random() * 0.8})`;
-      floatingElements.appendChild(star);
+    const starsContainer = document.getElementById('cake_stars');
+    for (let i = 0; i < 100; i++) {
+        createStar(starsContainer);
     }
-
     // Show birthday message after a delay
     setTimeout(() => {
       birthdayMessageRef.current.classList.add("visible");
@@ -72,6 +64,28 @@ const Cake = ({playMusic}) => {
     });
 
   }, []);
+
+const createStar = (container) => {
+    const star = document.createElement('div');
+    star.classList.add('main-landing-container__star');
+    
+    // Random sizing
+    const size = Math.random() * 0.5 + 0.5;
+    star.style.transform = `scale(${size})`;
+    
+    // Random positioning
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    
+    // Random animation duration
+    const duration = Math.random() * 3 + 1;
+    star.style.animationDuration = `${duration}s`;
+    
+    // Random animation delay
+    star.style.animationDelay = `${Math.random() * 3}s`;
+    
+    container.appendChild(star);
+};
 
 const createConfetti=()=> {
     const confettiContainer = confettiContainerRef.current;
@@ -126,10 +140,10 @@ const createConfetti=()=> {
       confettiContainer.appendChild(confetti);
     }
 
-    setTimeout(() => {
-      confettiContainer.innerHTML = "";
-      confettiContainer.classList.remove("active");
-    }, 7000);
+    // setTimeout(() => {
+    //   confettiContainer.innerHTML = "";
+    //   confettiContainer.classList.remove("active");
+    // }, 7000);
   }
 
   const handleCandleBlown = (i) => {
@@ -144,6 +158,8 @@ const createConfetti=()=> {
 
   return (
     <div className="main-cake-container">
+
+     <div className="main-landing-container__stars" id="cake_stars"></div>
       {/* <!-- Floating elements background --> */}
       <div className="main-cake-container__floating-elements"></div>
 

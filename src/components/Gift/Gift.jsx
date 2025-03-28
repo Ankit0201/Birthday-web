@@ -13,6 +13,7 @@ const Gift = ({ playMusic }) => {
     "https://pagalfree.com/musics/128-Tere Liye - 1982 - A Love Marriage 128 Kbps.mp3",
     "https://pagalfree.com/musics/128-Dekha Hazaro Dafaa - Rustom 128 Kbps.mp3",
     "https://pagalfree.com/musics/128-Bas Tera Hoon - Javed-Mohsin 128 Kbps.mp3",
+    "audio/o_rey_gori.mp3",
     "https://pagalfree.com/musics/128-Neend Churayee Meri - Ishq 128 Kbps.mp3",
     "https://pagalfree.com/musics/128-Tu Hain Toh Main Hoon - Sky Force 128 Kbps.mp3"
   ];

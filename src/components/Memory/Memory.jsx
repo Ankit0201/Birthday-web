@@ -28,8 +28,8 @@ const Memory = ({playMusic}) => {
         },
         {
             src: "images/citadel.jpg",
-            alt: "First Kiss Moment",
-            caption: "💋 The moment when our lips met, and time stood still. Pure magic. 💖",
+            alt: "First  Moment",
+            caption: "✨ Whenever I see you, time stops. It's pure magic. 💖",
             date: "September 15, 2024",
             delay: '0.4s'
         },
